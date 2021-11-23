@@ -89,15 +89,14 @@ export default {
   },
   fetchDelay: 1500,
   methods: {
-    getCountry() {
-      axios
+   async getCountry() {
+      await axios
         .get(
-          'https://restcountries.eu/rest/v2/alpha/' +
+          'https://restcountries.com/v2/alpha/' +
             this.$route.params.countryId
         )
         .then((res) => {
           this.country = res.data
-          // console.log(res.data);
         })
     },
   },
@@ -130,6 +129,7 @@ export default {
   gap: 8em;
   img {
     width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
   }
   @media (max-width: 900px) {
     gap: 2em;

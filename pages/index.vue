@@ -4,7 +4,11 @@
       <Search v-model="valueInput" />
       <FilterContinents :selected="selected" @click="changeSelect" />
     </div>
+    <!-- <p>eso perro</p> -->
     <Loading v-if="$fetchState.pending" />
+    <!-- <p v-else-if="$fetchState.error">Error while fetching mountains</p> -->
+    <!-- <Error v-else-if="$fetchState.error"/> -->
+    <!-- <p v-if="!countries.length">no hay nada</p> -->
     <div v-else class="countries">
       <Card
         v-for="(country, index) in filteredCountries"
@@ -37,7 +41,7 @@ export default {
   fetchDelay: 1000,
   methods: {
     getCountries() {
-      axios.get('https://restcountries.eu/rest/v2/' + this.slug).then((res) => {
+      axios.get('https://restcountries.com/v2/' + this.slug).then((res) => {
         this.countries = res.data
       })
     },
